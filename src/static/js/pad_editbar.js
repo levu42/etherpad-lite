@@ -1,5 +1,5 @@
 /**
- * This code is mostly from the old Etherpad. Please help us to comment this code. 
+ * This code is mostly from the old Etherpad. Please help us to comment this code.
  * This helps other people to understand this code better and helps them to improve it.
  * TL;DR COMMENTS ON THIS FILE ARE HIGHLY APPRECIATED
  */
@@ -110,12 +110,12 @@ var padeditbar = (function()
       $("#editbar").addClass('disabledtoolbar').removeClass("enabledtoolbar");
     },
     toolbarClick: function(cmd)
-    {  
+    {
       if (self.isEnabled())
       {
         if(cmd == "showusers")
         {
-          self.toogleDropDown("users");
+          $('body').toggleClass('nosidebar');
         }
         else if (cmd == 'settings')
         {
@@ -178,7 +178,7 @@ var padeditbar = (function()
     toogleDropDown: function(moduleName)
     {
       var modules = ["settingsmenu", "importexport", "embed", "users"];
-      
+
       //hide all modules
       if(moduleName == "none")
       {
@@ -188,16 +188,16 @@ var padeditbar = (function()
           //skip the userlist
           if(modules[i] == "users")
             continue;
-          
+
           var module = $("#" + modules[i]);
-        
+
           if(module.css('display') != "none")
           {
             module.slideUp("fast");
           }
         }
       }
-      else 
+      else
       {
         var nth_child = indexOf(modules, moduleName) + 1;
       	if (nth_child > 0 && nth_child <= (modules.length-1)) {
@@ -209,7 +209,7 @@ var padeditbar = (function()
         for(var i=0;i<modules.length;i++)
         {
           var module = $("#" + modules[i]);
-        
+
           if(module.css('display') != "none")
           {
             module.slideUp("fast");
