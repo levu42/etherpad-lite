@@ -1,5 +1,5 @@
 /**
- * This code is mostly from the old Etherpad. Please help us to comment this code. 
+ * This code is mostly from the old Etherpad. Please help us to comment this code.
  * This helps other people to understand this code better and helps them to improve it.
  * TL;DR COMMENTS ON THIS FILE ARE HIGHLY APPRECIATED
  */
@@ -29,8 +29,8 @@ var chat = (function()
   var chatMentions = 0;
   var title = document.title;
   var self = {
-    show: function () 
-    {      
+    show: function ()
+    {
       $("#chaticon").hide();
       $("#chatbox").show();
       self.scrollDown();
@@ -54,7 +54,7 @@ var chat = (function()
         isStuck = false;
       }
     },
-    hide: function () 
+    hide: function ()
     {
       $("#chatcounter").text("0");
       $("#chaticon").show();
@@ -64,7 +64,7 @@ var chat = (function()
     {
       if($('#chatbox').css("display") != "none")
         $('#chattext').animate({scrollTop: $('#chattext')[0].scrollHeight}, "slow");
-    }, 
+    },
     send: function()
     {
       var text = $("#chatinput").val();
@@ -72,10 +72,10 @@ var chat = (function()
       $("#chatinput").val("");
     },
     addMessage: function(msg, increment)
-    {    
+    {
       //correct the time
       msg.time += this._pad.clientTimeOffset;
-      
+
       //create the time string
       var minutes = "" + new Date(msg.time).getMinutes();
       var hours = "" + new Date(msg.time).getHours();
@@ -84,7 +84,7 @@ var chat = (function()
       if(hours.length == 1)
         hours = "0" + hours ;
       var timeStr = hours + ":" + minutes;
-        
+
       //create the authorclass
       var authorClass = "author-" + msg.userId.replace(/[^a-y0-9]/g, function(c)
       {
@@ -104,11 +104,11 @@ var chat = (function()
       }
       /* End of new action */
 
-      var authorName = msg.userName == null ? "unnamed" : padutils.escapeHtml(msg.userName); 
-      
+      var authorName = msg.userName == null ? "unnamed" : padutils.escapeHtml(msg.userName);
+
       var html = "<p class='" + authorClass + "'><b>" + authorName + ":</b><span class='time " + authorClass + "'>" + timeStr + "</span> " + text + "</p>";
       $("#chattext").append(html);
-      
+
       //should we increment the counter??
       if(increment)
       {
@@ -121,16 +121,16 @@ var chat = (function()
           if (chatMentions == 0){
             title = document.title;
           }
-          $('#chatthrob').html("<b>"+authorName+"</b>" + ": " + text).show().delay(4000).hide(400);
+          //$('#chatthrob').html("<b>"+authorName+"</b>" + ": " + text).show().delay(4000).hide(400);
           chatMentions++;
           document.title = "("+chatMentions+") " + title;
         }
         else
         {
-          $('#chatthrob').html("<b>"+authorName+"</b>" + ": " + text).show().delay(2000).hide(400);
+          //$('#chatthrob').html("<b>"+authorName+"</b>" + ": " + text).show().delay(2000).hide(400);
         }
       }
-      
+
       self.scrollDown();
 
     },
@@ -146,7 +146,7 @@ var chat = (function()
           self.send();
         }
       });
-      
+
       var that = this;
       $.each(clientVars.chatHistory, function(i, o){
         that.addMessage(o, false);

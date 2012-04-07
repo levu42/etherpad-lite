@@ -17,7 +17,6 @@ iframe {position:absolute;}
   height: 240px;
   color: #fff;
   padding: 5px;
-  overflow: auto;
 }
 
 a img
@@ -126,7 +125,7 @@ body.nosidebar #users
   top: 36px;
   left: 0px;
   bottom: 0px;
-  right: 20em;
+  right: 180px;
 
   z-index: 1;
 }
@@ -426,6 +425,11 @@ a#hidetopmsg { position: absolute; right: 5px; bottom: 5px; }
   color: #000
 }
 #myusernameform .editempty { color: #333; }
+
+#otherusers {
+    height: 210px;
+    overflow: auto;
+}
 
 table#otheruserstable { display: none; }
 #nootherusers { padding: 10px; font-size: 1.2em; color: #eee; font-weight: bold;}
