@@ -177,7 +177,7 @@ var padeditbar = (function()
     },
     toogleDropDown: function(moduleName)
     {
-      var modules = ["settingsmenu", "importexport", "embed", "users"];
+      var modules = ["settingsmenu", "importexport", "embed"];
 
       //hide all modules
       if(moduleName == "none")
