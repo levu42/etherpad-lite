@@ -121,13 +121,13 @@ var chat = (function()
           if (chatMentions == 0){
             title = document.title;
           }
-          //$('#chatthrob').html("<b>"+authorName+"</b>" + ": " + text).show().delay(4000).hide(400);
+          $('#chatthrob').html("<b>"+authorName+"</b>" + ": " + text).show().delay(4000).hide(400);
           chatMentions++;
           document.title = "("+chatMentions+") " + title;
         }
         else
         {
-          //$('#chatthrob').html("<b>"+authorName+"</b>" + ": " + text).show().delay(2000).hide(400);
+          $('#chatthrob').html("<b>"+authorName+"</b>" + ": " + text).show().delay(2000).hide(400);
         }
       }
 

@@ -10,13 +10,21 @@ iframe {position:absolute;}
   z-index:500;
   background-color: #000;
   background-color: rgba(0,0,0,0.7);
+  width: 160px;
+  right: 20px;
+  top: 40px;
+  color: #fff;
+  padding: 5px;
+  border-radius: 6px;
+}
+body.fixedSidebar #users
+{
   width: 170px;
   border-left: 1px solid #999;
   right: 0;
   top: 36px;
   height: 240px;
-  color: #fff;
-  padding: 5px;
+  border-radius: 0;
 }
 
 a img
@@ -113,7 +121,15 @@ a img
   float: right;
 }
 
-body.nosidebar #users
+#users
+{
+  display: none;
+}
+body.fixedSidebar #users
+{
+  display: block;
+}
+body.fixedSidebar.nosidebar #users
 {
   display: none;
 }
@@ -123,15 +139,18 @@ body.nosidebar #users
   position: absolute;
 
   top: 36px;
-  left: 0px;
-  bottom: 0px;
-  right: 180px;
+  left: 0;
+  bottom: 0;
+  right: 0;
 
   z-index: 1;
 }
-
-body.nosidebar #editorcontainer {
-    right: 0;
+body.fixedSidebar #editorcontainer
+{
+  right: 180px;
+}
+body.fixedSidebar.nosidebar #editorcontainer {
+  right: 0;
 }
 
 #editorcontainer iframe {
@@ -426,7 +445,7 @@ a#hidetopmsg { position: absolute; right: 5px; bottom: 5px; }
 }
 #myusernameform .editempty { color: #333; }
 
-#otherusers {
+body.fixedSidebar #otherusers {
     height: 210px;
     overflow: auto;
 }
@@ -547,6 +566,8 @@ table#otheruserstable { display: none; }
 #options-wrapper { width: 340px; right: 200px; }
 #options-panel { height: 114px; }
 .docbaroptions-closing #options-wrapper { z-index: 50; }
+
+#options-toggle-sidebar { padding: 3px; }
 
 #security-wrapper { width: 320px; right: 300px; }
 #security-panel { height: 130px; }
@@ -756,21 +777,39 @@ ul#colorpickerswatches li:hover
   cursor: pointer;
 }
 
-
-
 #chatbox
 {
   position:absolute;
-  bottom:0px;
+  bottom: 0;
+  right: 20px;
+  width: 180px;
+  height: 200px;
+  z-index: 400;
+  background-color:#f7f7f7;
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
+  border-top: 1px solid #999;
+  padding: 3px;
+  padding-bottom: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  display:none;
+}
+
+body.fixedSidebar #chatbox
+{
   right: 0;
   width: 180px;
   top: 286px;
   bottom: 0;
-  z-index: 400;
-  background-color:#f7f7f7;
+  border: 0px solid black;
   border-left: 1px solid #999;
+  border-radius: 0;
+  display: block;
+  height: auto;
+  padding: 0;
 }
-body.nosidebar #chatbox {
+body.fixedSidebar.nosidebar #chatbox {
     display: none;
 }
 
@@ -822,6 +861,27 @@ body.nosidebar #chatbox {
 
 #chaticon
 {
+  z-index: 400;
+  position: fixed;
+  bottom: 0px;
+  right: 20px;
+  padding: 5px;
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
+  border-top: 1px solid #999;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color:#fff;
+  cursor: pointer;
+}
+
+#chaticon a
+{
+  text-decoration: none;
+}
+
+body.fixedSidebar #chaticon
+{
   display: none;
 }
 
@@ -856,6 +916,9 @@ body.nosidebar #chatbox {
   text-decoration: none;
   cursor: pointer;
   color:#555;
+}
+
+body.fixedSidebar #titlecross {
   display: none;
 }
 

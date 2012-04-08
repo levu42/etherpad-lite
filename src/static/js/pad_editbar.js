@@ -115,11 +115,24 @@ var padeditbar = (function()
       {
         if(cmd == "showusers")
         {
-          $('body').toggleClass('nosidebar');
+          if ($("body").hasClass("fixedSidebar"))
+          {
+            $('body').toggleClass('nosidebar');
+          }
+          else
+          {
+            self.toogleDropDown("users");
+          }
         }
         else if (cmd == 'settings')
         {
-              self.toogleDropDown("settingsmenu");
+          self.toogleDropDown("settingsmenu");
+        }
+        else if (cmd == 'sidebar')
+        {
+          $('#users, #chatbox').css('display', '');
+          $('body').removeClass('nosidebar').toggleClass('fixedSidebar');
+          self.toogleDropDown("settingsmenu");
         }
         else if (cmd == 'embed')
         {
@@ -178,6 +191,11 @@ var padeditbar = (function()
     toogleDropDown: function(moduleName)
     {
       var modules = ["settingsmenu", "importexport", "embed"];
+
+      if (!$('body').hasClass('fixedSidebar'))
+      {
+        modules.push("users");
+      }
 
       //hide all modules
       if(moduleName == "none")
