@@ -130,8 +130,16 @@ var padeditbar = (function()
         }
         else if (cmd == 'sidebar')
         {
-          $('#users, #chatbox').css('display', '');
-          $('body').removeClass('nosidebar').toggleClass('fixedSidebar');
+          $("#users, #chatbox").css("display", "");
+          $("body").removeClass("nosidebar").toggleClass("fixedSidebar");
+          if ($("body").hasClass("fixedSidebar"))
+          {
+            $("#usericon").attr("title", "Show sidebar");
+          }
+          else
+          {
+            $("#usericon").attr("title", "Show connected users");
+          }
           self.toogleDropDown("settingsmenu");
         }
         else if (cmd == 'embed')
